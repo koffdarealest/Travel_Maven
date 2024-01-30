@@ -1,10 +1,11 @@
 <%-- 
-    Document   : index
-    Created on : Oct 24, 2023, 9:00:07 AM
+    Document   : package
+    Created on : Oct 24, 2023, 9:23:22 AM
     Author     : Tung
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,7 +27,8 @@
 
         <!-- Customized Bootstrap Stylesheet -->
         <link href="css/style.css" rel="stylesheet">
-    </head>
+
+    </head> 
 
     <body>
         <!-- Topbar Start -->
@@ -42,19 +44,19 @@
                     </div>
                     <div class="col-lg-6 text-center text-lg-right">
                         <div class="d-inline-flex align-items-center">
-                            <a class="text-primary px-3" href="https://www.facebook.com/koffdarealest/" target="_blank">
+                            <a class="text-primary px-3" href="https://www.facebook.com/koffdarealest/">
                                 <i class="fab fa-facebook-f"></i>
                             </a>
-                            <a class="text-primary px-3" href="https://twitter.com/" target="_blank">
+                            <a class="text-primary px-3" href="">
                                 <i class="fab fa-twitter"></i>
                             </a>
-                            <a class="text-primary px-3" href="https://www.linkedin.com/" target="_blank">
+                            <a class="text-primary px-3" href="">
                                 <i class="fab fa-linkedin-in"></i>
                             </a>
-                            <a class="text-primary px-3" href="https://www.instagram.com/eb_gnut/" target="_blank">
+                            <a class="text-primary px-3" href="">
                                 <i class="fab fa-instagram"></i>
                             </a>
-                            <a class="text-primary pl-3" href="https://www.youtube.com/" target="_blank">
+                            <a class="text-primary pl-3" href="">
                                 <i class="fab fa-youtube"></i>
                             </a>
                         </div>
@@ -77,8 +79,8 @@
                     </button>
                     <div class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
                         <div class="navbar-nav ml-auto py-0">
-                            <a href="index" class="nav-item nav-link active">Home</a>
-                            <a href="package" class="nav-item nav-link">Tour Packages</a>
+                            <a href="index" class="nav-item nav-link">Home</a>
+                            <a href="package" class="nav-item nav-link active">Tour Packages</a>
                             <a href="destination" class="nav-item nav-link">Destination</a>
                             <a href="booking" class="nav-item nav-link">BOOK NOW</a>
                             <c:choose>
@@ -89,7 +91,7 @@
                                 <c:otherwise>
                                     <a href="login" class="nav-item nav-link">Login</a>
                                 </c:otherwise>
-                            </c:choose>    
+                            </c:choose>   
                             <!--<a href="login" class="nav-item nav-link">Log in & Sign up</a>-->
                         </div>
                     </div>
@@ -99,158 +101,143 @@
         <!-- Navbar End -->
 
 
-        <!-- Carousel Start -->
-        <div class="container-fluid p-0">
-            <div id="header-carousel" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img class="w-100" src="img/carousel-1.jpg" alt="Image">
-                        <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-                            <div class="p-3" style="max-width: 900px;">
-                                <!--                            <h4 class="text-white text-uppercase mb-md-3">Tours & Travel</h4>-->
-                                <br>
-                                <br>
-                                <h1 class="display-3 text-white mb-md-4">Let's Discover The World Together</h1>
-                                <a href="booking" class="btn btn-primary py-md-3 px-md-5 mt-2">Book Now</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img class="w-100" src="img/carousel-2.jpg" alt="Image">
-                        <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-                            <div class="p-3" style="max-width: 900px;">
-                                <!--                            <h4 class="text-white text-uppercase mb-md-3">Tours & Travel</h4>-->
-                                <br>
-                                <br>
-                                <h1 class="display-3 text-white mb-md-4">Discover Amazing Places With Us</h1>
-                                <a href="booking" class="btn btn-primary py-md-3 px-md-5 mt-2">Book Now</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <a class="carousel-control-prev" href="#header-carousel" data-slide="prev">
-                    <div class="btn btn-dark" style="width: 45px; height: 45px;">
-                        <span class="carousel-control-prev-icon mb-n2"></span>
-                    </div>
-                </a>
-                <a class="carousel-control-next" href="#header-carousel" data-slide="next">
-                    <div class="btn btn-dark" style="width: 45px; height: 45px;">
-                        <span class="carousel-control-next-icon mb-n2"></span>
-                    </div>
-                </a>
-            </div>
-        </div>
-        <!-- Carousel End -->   
-
-
-        <!-- About Start -->
-        <div class="container-fluid py-5">
-            <div class="container pt-5">
-                <div class="row">
-                    <div class="col-lg-6" style="min-height: 500px;">
-                        <div class="position-relative h-100">
-                            <img class="position-absolute w-100 h-100" src="img/about.jpg" style="object-fit: cover;">
-                        </div>
-                    </div>
-                    <div class="col-lg-6 pt-5 pb-lg-5">
-                        <div class="about-text bg-white p-4 p-lg-5 my-lg-5">
-                            <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">About Us</h6>
-                            <h1 class="mb-3">We Provide Best Tour Packages</h1>
-                            <p>Always bringing you the best options, most worthy of the money you spend. Besides, providing you with all the services so you can REALLY enjoy the trip</p>
-                            <div class="row mb-4">
-                                <div class="col-6">
-                                    <img class="img-fluid" src="img/about-1.jpg" alt="">
-                                </div>
-                                <div class="col-6">
-                                    <img class="img-fluid" src="img/about-2.jpg" alt="">
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
+        <!-- Header Start -->
+        <div class="container-fluid page-header">
+            <div class="container">
+                <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 400px">
+                    <h2 class="display-4 text-white text-uppercase">Packages</h2>
                 </div>
             </div>
         </div>
-        <!-- About End -->
+        <!-- Header End -->
 
 
-        <!-- Feature Start -->
-        <div class="container-fluid pb-5">
+        <!-- Filter Start -->
+        <div class="container-fluid booking mt-5 pb-5" style="margin-bottom: -125px;">
             <div class="container pb-5">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="d-flex mb-4 mb-lg-0">
-                            <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-primary mr-3" style="height: 100px; width: 100px;">
-                                <i class="fa fa-2x fa-money-check-alt text-white"></i>
+                <div class="bg-light shadow" style="padding: 30px;">
+                    <form method="post" action="filter">
+                        <div class="row align-items-center" style="min-height: 60px;">
+                            <div class="col-md-10">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="mb-3 mb-md-0">
+                                            <select name="country" class="custom-select px-4" style="height: 47px;">
+                                                <option value="nothing" selected>Country</option>
+                                                <c:forEach items="${listdest}" var="o">
+                                                    <option value="${o.destination}">${o.destination}</option>
+                                                </c:forEach>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="mb-3 mb-md-0">
+                                            <select name="numofperson" class="custom-select px-4" style="height: 47px;">
+                                                <option value="nothing" selected>Num Of Person</option>
+                                                <option value="1person">1-2 Persons</option>
+                                                <option value="3person">3-4 Persons</option>
+                                                <option value="5person">5-7 Persons</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="mb-3 mb-md-0">
+                                            <select name="price" class="custom-select px-4" style="height: 47px;">
+                                                <option value="nothing" selected>Price</option>
+                                                <option value="1price">Under 1000$</option>
+                                                <option value="2price">1000$-2000$</option>
+                                                <option value="3price">More than 2000$</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="mb-3 mb-md-0">
+                                            <select name="duration" class="custom-select px-4" style="height: 47px;">
+                                                <option value="nothing" selected>Duration</option>
+                                                <option value="3dur">3-5 days</option>
+                                                <option value="6dur">6-10 days</option>
+                                                <option value="10dur">More than 10 days</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="d-flex flex-column">
-                                <h5 class="">Competitive Pricing</h5>
-                                <p class="m-0">Best price based on your experience</p>
+                            <div class="col-md-2">
+                                <button class="btn btn-primary btn-block" type="submit" style="height: 47px; margin-top: -1px;">Find</button>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="d-flex mb-4 mb-lg-0">
-                            <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-primary mr-3" style="height: 100px; width: 100px;">
-                                <i class="fa fa-2x fa-award text-white"></i>
-                            </div>
-                            <div class="d-flex flex-column">
-                                <h5 class="">Best Services</h5>
-                                <p class="m-0">Bringing you the most advanced and convenient services</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="d-flex mb-4 mb-lg-0">
-                            <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-primary mr-3" style="height: 100px; width: 100px;">
-                                <i class="fa fa-2x fa-globe text-white"></i>
-                            </div>
-                            <div class="d-flex flex-column">
-                                <h5 class="">Worldwide Coverage</h5>
-                                <p class="m-0">Giving you peace of mind, helping you enjoy your trips</p>
-                            </div>
-                        </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
-        <!-- Feature End -->
+        <!-- Filter End -->
+
+
+
 
         <!-- Packages Start -->
         <div class="container-fluid py-5">
             <div class="container pt-5 pb-3">
                 <div class="text-center mb-3 pb-3">
                     <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Packages</h6>
-                    <h1>Best Our Tour Packages</h1>
+                    <h1>Perfect Tour Packages</h1>
                 </div>
+                <!-- Sorting Start -->
+                <form action="sort" method="post">  
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="mb-2 mb-md-0">
+                                <select name="sort" class="custom-select px-4" style="height: 40px;">
+                                    <option value="nothing" selected>Sort By</option>
+                                    <option value="ratedesc">Rating ( &#8595 )</option>
+                                    <option value="rateasc">Rating ( &#8593 )</option>
+                                    <option value="pricedesc">Price ( &#8595 )</option>
+                                    <option value="priceasc">Price ( &#8593 )</option>
+                                    <option value="durdesc">Duration ( &#8595 )</option>
+                                    <option value="durasc">Duration ( &#8593 )</option>
+                                    <option value="nopdesc">Number Of People ( &#8595 )</option>
+                                    <option value="nopasc">Number Of People ( &#8593 )</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <button class="btn btn-primary btn-block" type="submit" style="height: 40px;">Sort</button>
+                        </div>
+                    </div>
+                </form>
+                <!-- Sorting End -->
+                <br>
                 <div class="row">
-                    <c:forEach items = "${listhigh}" var ="o">
+                    <c:forEach items = "${listtour}" var ="o">
                         <div class="col-lg-4 col-md-6 mb-4">
-                            <div class="package-item bg-white mb-2">
-                                <img class="img-fluid" src="${o.image}" alt="">
-                                <div class="p-4">
-                                    <div class="d-flex justify-content-between mb-3">
-                                        <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i>${o.destination}</small>
-                                        <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>${o.numOfDay} Day</small>
-                                        <small class="m-0"><i class="fa fa-user text-primary mr-2"></i>${o.numOfPerson} Person</small>
-                                    </div>
-                                    <a class="h5 text-decoration-none" href="package">${o.name}</a>
-                                    <p>${o.describe}</p>
-                                    <div class="border-top mt-4 pt-4">
-                                        <div class="d-flex justify-content-between">
-                                            <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>${o.rating}</h6>
-                                            <h5 class="m-0">$${o.price}</h5>
+                            <form action="booking" method="post">
+                                <div class="package-item bg-white mb-2">
+                                    <img class="img-fluid" src="${o.image}" alt="">
+                                    <div class="p-4">
+                                        <div class="d-flex justify-content-between mb-3">
+                                            <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i>${o.destination}</small>
+                                            <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>${o.numOfDay} Day</small>
+                                            <small class="m-0"><i class="fa fa-user text-primary mr-2"></i>${o.numOfPerson} Person</small>
+                                        </div>
+                                        <a class="h5 text-decoration-none" href="">${o.name}</a>
+                                        <p>${o.describe}</p>
+                                        <div class="border-top mt-4 pt-4">
+                                            <div class="d-flex justify-content-between" style="margin-bottom: -10px;">
+                                                <h5 class="m-0"><i class="fa fa-star text-primary mr-2"></i>${o.rating}</h5>
+                                                <button class="col-md-4 btn btn-primary" type="submit" style="height: 30px; font-size: smaller ">Book</button>
+                                                <input type="hidden" name="chosentour" value="${o.ID}"/>
+                                                <h5 class="m-0">$${o.price}</h5>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </form>
                         </div>
                     </c:forEach>
-                </div>
+                </div>                   
             </div>
         </div>
         <!-- Packages End -->
-
 
 
         <!-- Footer Start -->
@@ -317,6 +304,8 @@
 
         <!-- Template Javascript -->
         <script src="js/main.js"></script>
+
+
     </body>
 
 </html>
