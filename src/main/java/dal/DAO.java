@@ -4,17 +4,18 @@
  */
 package dal;
 
-import jakarta.servlet.http.HttpSession;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.logging.log4j.Logger;
 import model.account;
 import model.book;
 import model.dest;
 import model.tour;
+import org.apache.logging.log4j.LogManager;
 
 /**
  *
@@ -418,12 +419,13 @@ public class DAO extends DBContext {
             ps.setString(9, image);
             rs = ps.executeQuery();
         } catch (SQLException e) {
-            System.err.println("SQL Exception: " + e.getMessage());
-            System.err.println("SQL State: " + e.getSQLState());
-            System.err.println("Vendor Error Code: " + e.getErrorCode());
+            Logger Log = LogManager.getLogger();
+            Log.error("SQL Exception: " + e.getMessage());
+            Log.error("SQL State: " + e.getSQLState());
+            Log.error("Vendor Error Code: " + e.getErrorCode(), e);
         }
     }
-    
+
     public void delTour(String ID) {
         String query = "delete from tour where ID = ?";
         try {
@@ -460,7 +462,7 @@ public class DAO extends DBContext {
 //        System.out.println(byuser);
 
         dao.addTour("T0001A", "a", "Viet Nam", 3, 3, "test", 300, 4.5, "img/Milan.jpg");
-        
+
     }
 
 }
