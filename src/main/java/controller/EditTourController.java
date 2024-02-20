@@ -1,12 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
- */
 package controller;
 
 import dal.DAO;
 import java.io.IOException;
-import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -15,25 +10,14 @@ import jakarta.servlet.http.HttpSession;
 import java.util.List;
 import model.tour;
 
-/**
- *
- * @author Tung
- */
 public class EditTourController extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+    private static final String BOOK_ID_ATTRIBUTE = "bookid";
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try ( PrintWriter out = response.getWriter()) {
+        try {
             HttpSession session = request.getSession();
             try {
                 String username = session.getAttribute("user").toString();
@@ -45,22 +29,14 @@ public class EditTourController extends HttpServlet {
             List<tour> list = dao.getAllTour();
             request.setAttribute("listtour", list);
             request.getRequestDispatcher("edit.jsp").forward(request, response);
+        } catch (Exception e) {
+            // Handle exception
         }
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-//        processRequest(request, response);
         String name = request.getParameter("name");
         String email = request.getParameter("email");
         String phone = request.getParameter("phone");
@@ -68,27 +44,18 @@ public class EditTourController extends HttpServlet {
         DAO dao = new DAO();
         try {
             HttpSession session = request.getSession();
-            String bookID = session.getAttribute("bookid").toString();
+            String bookID = session.getAttribute(BOOK_ID_ATTRIBUTE).toString();
             int bookIDint = Integer.parseInt(bookID);
             dao.updateBook(name, email, phone, date, bookIDint);
             response.sendRedirect("editsuccess");
         } catch (Exception e) {
+            // Handle exception
         }
-
     }
 
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-//        processRequest(request, response);
         String action = request.getParameter("action");
         if (action.equals("edit")) {
             String name = request.getParameter("cusName");
@@ -97,7 +64,7 @@ public class EditTourController extends HttpServlet {
             String sdate = request.getParameter("startDate");
             HttpSession session = request.getSession();
             String bookid = request.getParameter("bookid");
-            session.setAttribute("bookid", bookid);
+            session.setAttribute(BOOK_ID_ATTRIBUTE, bookid);
             request.setAttribute("name", name);
             request.setAttribute("mail", mail);
             request.setAttribute("phone", phone);
@@ -111,19 +78,14 @@ public class EditTourController extends HttpServlet {
                 dao.deleteBook(bookid);
                 response.sendRedirect("editsuccess");
             } catch (Exception e) {
+                // Handle exception
             }
         }
-
     }
 
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
     @Override
     public String getServletInfo() {
         return "Short description";
-    }// </editor-fold>
+    }
 
 }
