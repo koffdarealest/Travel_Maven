@@ -50,7 +50,6 @@ public class AddBookController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-//        processRequest(request, response);
         String name = request.getParameter("name");
         String email = request.getParameter("email");
         String phone = request.getParameter("phone");
@@ -59,11 +58,12 @@ public class AddBookController extends HttpServlet {
         HttpSession session = request.getSession();
         try {
             String user = session.getAttribute("user").toString();
-            System.out.println(user);          
             DAO dao = new DAO();
             dao.setBooking(name, email, phone, departureDate, selectedTour, user);
-        } catch (Exception e) {
-        }       
+        } catch (Exception e){
+            log("Catch an Exception", e);
+        }   
+        
         session.setAttribute("selectedtour", selectedTour);
         
         
