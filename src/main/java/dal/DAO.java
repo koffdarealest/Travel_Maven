@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
 import org.apache.logging.log4j.Logger;
 import model.account;
 import model.book;
@@ -18,7 +19,6 @@ import model.tour;
 import org.apache.logging.log4j.LogManager;
 
 /**
- *
  * @author Tung
  */
 public class DAO extends DBContext {
@@ -35,7 +35,15 @@ public class DAO extends DBContext {
             ps = conn.prepareStatement(query);
             rs = ps.executeQuery();
             while (rs.next()) {
-                list.add(new tour(rs.getString(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getInt(5), rs.getInt(6), rs.getString(7), rs.getFloat(8), rs.getString(9)));
+                list.add(new tour(rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getInt(4),
+                        rs.getInt(5),
+                        rs.getInt(6),
+                        rs.getString(7),
+                        rs.getFloat(8),
+                        rs.getString(9)));
             }
         } catch (Exception e) {
         }
@@ -50,7 +58,8 @@ public class DAO extends DBContext {
             ps = conn.prepareStatement(query);
             rs = ps.executeQuery();
             while (rs.next()) {
-                list.add(new dest(rs.getString(1), rs.getString(2)));
+                list.add(new dest(rs.getString(1),
+                        rs.getString(2)));
             }
         } catch (Exception e) {
         }
@@ -65,9 +74,18 @@ public class DAO extends DBContext {
             ps = conn.prepareStatement(query);
             rs = ps.executeQuery();
             while (rs.next()) {
-                list.add(new tour(rs.getString(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getInt(5), rs.getInt(6), rs.getString(7), rs.getFloat(8), rs.getString(9)));
+                list.add(new tour(rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getInt(4),
+                        rs.getInt(5),
+                        rs.getInt(6),
+                        rs.getString(7),
+                        rs.getFloat(8),
+                        rs.getString(9)));
             }
         } catch (Exception e) {
+            e.printStackTrace();
         }
         return list;
     }
@@ -115,9 +133,18 @@ public class DAO extends DBContext {
             ps = conn.prepareStatement(query);
             rs = ps.executeQuery();
             while (rs.next()) {
-                list.add(new tour(rs.getString(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getInt(5), rs.getInt(6), rs.getString(7), rs.getFloat(8), rs.getString(9)));
+                list.add(new tour(rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getInt(4),
+                        rs.getInt(5),
+                        rs.getInt(6),
+                        rs.getString(7),
+                        rs.getFloat(8),
+                        rs.getString(9)));
             }
         } catch (Exception e) {
+            e.printStackTrace();
         }
         return list;
     }
@@ -197,9 +224,18 @@ public class DAO extends DBContext {
             ps = conn.prepareStatement(query);
             rs = ps.executeQuery();
             while (rs.next()) {
-                list.add(new tour(rs.getString(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getInt(5), rs.getInt(6), rs.getString(7), rs.getFloat(8), rs.getString(9)));
+                list.add(new tour(rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getInt(4),
+                        rs.getInt(5),
+                        rs.getInt(6),
+                        rs.getString(7),
+                        rs.getFloat(8),
+                        rs.getString(9)));
             }
         } catch (Exception e) {
+            e.printStackTrace();
         }
         return list;
     }
@@ -229,7 +265,12 @@ public class DAO extends DBContext {
             ps = conn.prepareStatement(query);
             rs = ps.executeQuery();
             while (rs.next()) {
-                lastbook = new book(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6));
+                lastbook = new book(rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6));
             }
         } catch (Exception e) {
         }
@@ -245,7 +286,15 @@ public class DAO extends DBContext {
             ps.setString(1, selectedtour);
             rs = ps.executeQuery();
             while (rs.next()) {
-                tour = new tour(rs.getString(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getInt(5), rs.getInt(6), rs.getString(7), rs.getFloat(8), rs.getString(9));
+                tour = new tour(rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getInt(4),
+                        rs.getInt(5),
+                        rs.getInt(6),
+                        rs.getString(7),
+                        rs.getFloat(8),
+                        rs.getString(9));
             }
         } catch (Exception e) {
         }
@@ -261,7 +310,15 @@ public class DAO extends DBContext {
             ps.setString(1, des);
             rs = ps.executeQuery();
             while (rs.next()) {
-                list.add(new tour(rs.getString(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getInt(5), rs.getInt(6), rs.getString(7), rs.getFloat(8), rs.getString(9)));
+                list.add(new tour(rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getInt(4),
+                        rs.getInt(5),
+                        rs.getInt(6),
+                        rs.getString(7),
+                        rs.getFloat(8),
+                        rs.getString(9)));
             }
         } catch (Exception e) {
         }
@@ -278,7 +335,12 @@ public class DAO extends DBContext {
             ps.setString(2, pass);
             rs = ps.executeQuery();
             while (rs.next()) {
-                acc = new account(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6));
+                acc = new account(rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getInt(6));
             }
         } catch (Exception e) {
         }
@@ -299,7 +361,12 @@ public class DAO extends DBContext {
             ps.setString(2, pass);
             rs = ps.executeQuery();
             while (rs.next()) {
-                acc = new account(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6));
+                acc = new account(rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getInt(6));
             }
         } catch (Exception e) {
         }
@@ -335,7 +402,12 @@ public class DAO extends DBContext {
             ps.setString(2, username);
             rs = ps.executeQuery();
             while (rs.next()) {
-                acc = new account(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6));
+                acc = new account(rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getInt(6));
             }
         } catch (Exception e) {
         }
@@ -360,7 +432,12 @@ public class DAO extends DBContext {
             ps.setString(1, username);
             rs = ps.executeQuery();
             while (rs.next()) {
-                list.add(new book(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6)));
+                list.add(new book(rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6)));
             }
         } catch (Exception e) {
         }
@@ -439,27 +516,6 @@ public class DAO extends DBContext {
 
     public static void main(String[] args) {
         DAO dao = new DAO();
-//        List<tour> list = dao.getAllTour();
-//        for (tour o : list) {
-//            System.out.println(o);
-//        }
-//
-//        List<dest> list2 = dao.getAllDest();
-//        for (dest o1 : list2) {
-//            System.out.println(o1);
-//        }
-//
-//        book bk = dao.getLastBook();
-//        System.out.println(bk);
-//
-//        tour tr = dao.getBookTour("T000001");
-//        System.out.println(tr);
-//
-//        System.out.println(dao.isAdmin("admin", "admin"));
-//        
-//        List<book> byuser = dao.getBookByUser("tamtamtam");
-//        System.out.println("---123---");
-//        System.out.println(byuser);
 
         dao.addTour("T0001A", "a", "Viet Nam", 3, 3, "test", 300, 4.5, "img/Milan.jpg");
 
