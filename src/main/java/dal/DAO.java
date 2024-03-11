@@ -10,7 +10,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
 import org.apache.logging.log4j.Logger;
 import model.account;
 import model.book;
@@ -19,6 +18,7 @@ import model.tour;
 import org.apache.logging.log4j.LogManager;
 
 /**
+ *
  * @author Tung
  */
 public class DAO extends DBContext {
@@ -35,15 +35,7 @@ public class DAO extends DBContext {
             ps = conn.prepareStatement(query);
             rs = ps.executeQuery();
             while (rs.next()) {
-                list.add(new tour(rs.getString(1),
-                        rs.getString(2),
-                        rs.getString(3),
-                        rs.getInt(4),
-                        rs.getInt(5),
-                        rs.getInt(6),
-                        rs.getString(7),
-                        rs.getFloat(8),
-                        rs.getString(9)));
+                list.add(new tour(rs.getString(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getInt(5), rs.getInt(6), rs.getString(7), rs.getFloat(8), rs.getString(9)));
             }
         } catch (Exception e) {
         }
@@ -58,8 +50,7 @@ public class DAO extends DBContext {
             ps = conn.prepareStatement(query);
             rs = ps.executeQuery();
             while (rs.next()) {
-                list.add(new dest(rs.getString(1),
-                        rs.getString(2)));
+                list.add(new dest(rs.getString(1), rs.getString(2)));
             }
         } catch (Exception e) {
         }
@@ -74,18 +65,9 @@ public class DAO extends DBContext {
             ps = conn.prepareStatement(query);
             rs = ps.executeQuery();
             while (rs.next()) {
-                list.add(new tour(rs.getString(1),
-                        rs.getString(2),
-                        rs.getString(3),
-                        rs.getInt(4),
-                        rs.getInt(5),
-                        rs.getInt(6),
-                        rs.getString(7),
-                        rs.getFloat(8),
-                        rs.getString(9)));
+                list.add(new tour(rs.getString(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getInt(5), rs.getInt(6), rs.getString(7), rs.getFloat(8), rs.getString(9)));
             }
         } catch (Exception e) {
-            e.printStackTrace();
         }
         return list;
     }
@@ -133,18 +115,9 @@ public class DAO extends DBContext {
             ps = conn.prepareStatement(query);
             rs = ps.executeQuery();
             while (rs.next()) {
-                list.add(new tour(rs.getString(1),
-                        rs.getString(2),
-                        rs.getString(3),
-                        rs.getInt(4),
-                        rs.getInt(5),
-                        rs.getInt(6),
-                        rs.getString(7),
-                        rs.getFloat(8),
-                        rs.getString(9)));
+                list.add(new tour(rs.getString(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getInt(5), rs.getInt(6), rs.getString(7), rs.getFloat(8), rs.getString(9)));
             }
         } catch (Exception e) {
-            e.printStackTrace();
         }
         return list;
     }
@@ -224,18 +197,9 @@ public class DAO extends DBContext {
             ps = conn.prepareStatement(query);
             rs = ps.executeQuery();
             while (rs.next()) {
-                list.add(new tour(rs.getString(1),
-                        rs.getString(2),
-                        rs.getString(3),
-                        rs.getInt(4),
-                        rs.getInt(5),
-                        rs.getInt(6),
-                        rs.getString(7),
-                        rs.getFloat(8),
-                        rs.getString(9)));
+                list.add(new tour(rs.getString(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getInt(5), rs.getInt(6), rs.getString(7), rs.getFloat(8), rs.getString(9)));
             }
         } catch (Exception e) {
-            e.printStackTrace();
         }
         return list;
     }
@@ -265,12 +229,7 @@ public class DAO extends DBContext {
             ps = conn.prepareStatement(query);
             rs = ps.executeQuery();
             while (rs.next()) {
-                lastbook = new book(rs.getInt(1),
-                        rs.getString(2),
-                        rs.getString(3),
-                        rs.getString(4),
-                        rs.getString(5),
-                        rs.getString(6));
+                lastbook = new book(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6));
             }
         } catch (Exception e) {
         }
@@ -286,15 +245,7 @@ public class DAO extends DBContext {
             ps.setString(1, selectedtour);
             rs = ps.executeQuery();
             while (rs.next()) {
-                tour = new tour(rs.getString(1),
-                        rs.getString(2),
-                        rs.getString(3),
-                        rs.getInt(4),
-                        rs.getInt(5),
-                        rs.getInt(6),
-                        rs.getString(7),
-                        rs.getFloat(8),
-                        rs.getString(9));
+                tour = new tour(rs.getString(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getInt(5), rs.getInt(6), rs.getString(7), rs.getFloat(8), rs.getString(9));
             }
         } catch (Exception e) {
         }
@@ -310,32 +261,28 @@ public class DAO extends DBContext {
             ps.setString(1, des);
             rs = ps.executeQuery();
             while (rs.next()) {
-                list.add(new tour(rs.getString(1),
-                        rs.getString(2),
-                        rs.getString(3),
-                        rs.getInt(4),
-                        rs.getInt(5),
-                        rs.getInt(6),
-                        rs.getString(7),
-                        rs.getFloat(8),
-                        rs.getString(9)));
+                list.add(new tour(rs.getString(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getInt(5), rs.getInt(6), rs.getString(7), rs.getFloat(8), rs.getString(9)));
             }
         } catch (Exception e) {
         }
         return list;
     }
 
-    public boolean isAdmin(String user, String pass) {
+    public boolean isAdmin(String username, String pass) {
         account acc = new account();
-        String query = "select * from account where accUsername = ? and accPassword = ?";
+        String query = "select * from account "
+                + "where "
+                + "accUsername = ? "
+                + "and accPassword = ?";
         try {
             conn = new DBContext().connection;
             ps = conn.prepareStatement(query);
-            ps.setString(1, user);
+            ps.setString(1, username);
             ps.setString(2, pass);
             rs = ps.executeQuery();
             while (rs.next()) {
-                acc = new account(rs.getInt(1),
+                acc = new account(
+                        rs.getInt(1),
                         rs.getString(2),
                         rs.getString(3),
                         rs.getString(4),
@@ -343,6 +290,7 @@ public class DAO extends DBContext {
                         rs.getInt(6));
             }
         } catch (Exception e) {
+            java.util.logging.Logger.getLogger(DBContext.class.getName()).log(Level.SEVERE, null, e);
         }
         if (acc.getIsAdmin() == 1) {
             return true;
@@ -351,17 +299,21 @@ public class DAO extends DBContext {
         }
     }
 
-    public boolean isUser(String user, String pass) {
+    public boolean isUser(String username, String pass) {
         account acc = new account();
-        String query = "select * from account where accUsername = ? and accPassword = ?";
+        String query = "select * from account "
+                + "where "
+                + "accUsername = ? "
+                + "and accPassword = ?";
         try {
             conn = new DBContext().connection;
             ps = conn.prepareStatement(query);
-            ps.setString(1, user);
+            ps.setString(1, username);
             ps.setString(2, pass);
             rs = ps.executeQuery();
             while (rs.next()) {
-                acc = new account(rs.getInt(1),
+                acc = new account(
+                        rs.getInt(1),
                         rs.getString(2),
                         rs.getString(3),
                         rs.getString(4),
@@ -377,32 +329,69 @@ public class DAO extends DBContext {
         }
     }
 
-    public void createUserAccount(String gmail, String user, String pass, String phone) {
-        String query = "insert into account(accMail, accUsername, accPassword, accPhone, isAdmin) \n"
+    public boolean createUserAccount(String email, String username, String pass, String phone) {
+        if (isValidGmail(email)) {
+            java.util.logging.Logger.getLogger(DBContext.class.getName()).log(Level.SEVERE, "Email is invalid!");
+            return false;
+        }
+        if (isValidUsername(username)) {
+            java.util.logging.Logger.getLogger(DBContext.class.getName()).log(Level.SEVERE, "Username is invalid!");
+            return false;
+        }
+        if (isValidPassword(pass)) {
+            java.util.logging.Logger.getLogger(DBContext.class.getName()).log(Level.SEVERE, "Password is invalid!");
+            return false;
+        }
+        if (isValidPhone(phone)) {
+            java.util.logging.Logger.getLogger(DBContext.class.getName()).log(Level.SEVERE, "Phone number is invalid!");
+            return false;
+        }
+        if (checkExisted(email, "")) {
+            java.util.logging.Logger.getLogger(DBContext.class.getName()).log(Level.SEVERE, "Email already existed!");
+            return false;
+        }
+        if (checkExisted("", username)) {
+            java.util.logging.Logger.getLogger(DBContext.class.getName()).log(Level.SEVERE, "Username already existed!");
+            return false;
+        }
+        String query = "insert into account"
+                + "(accMail, "
+                + "accUsername, "
+                + "accPassword, "
+                + "accPhone, "
+                + "isAdmin) \n"
                 + "values (?, ?, ?, ?, 0)";
         try {
             conn = new DBContext().connection;
             ps = conn.prepareStatement(query);
-            ps.setString(1, gmail);
-            ps.setString(2, user);
+            ps.setString(1, email);
+            ps.setString(2, username);
             ps.setString(3, pass);
             ps.setString(4, phone);
             rs = ps.executeQuery();
         } catch (Exception e) {
         }
+        if (checkExisted(email, username)) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
-    public account getExistAccount(String gmail, String username) {
+    public account getExistAccount(String email, String username) {
         account acc = new account();
-        String query = "select * from account where accMail = ? or accUsername = ?";
+        String query = "select * from account"
+                + " where accMail = ? "
+                + "or accUsername = ?";
         try {
             conn = new DBContext().connection;
             ps = conn.prepareStatement(query);
-            ps.setString(1, gmail);
+            ps.setString(1, email);
             ps.setString(2, username);
             rs = ps.executeQuery();
             while (rs.next()) {
-                acc = new account(rs.getInt(1),
+                acc = new account(
+                        rs.getInt(1),
                         rs.getString(2),
                         rs.getString(3),
                         rs.getString(4),
@@ -414,8 +403,8 @@ public class DAO extends DBContext {
         return acc;
     }
 
-    public boolean checkExisted(String gmail, String username) {
-        account acc = getExistAccount(gmail, username);
+    public boolean checkExisted(String email, String username) {
+        account acc = getExistAccount(email, username);
         if (acc.getAccMail() == null || acc.getAccUsername() == null) {
             return false;
         } else {
@@ -514,10 +503,91 @@ public class DAO extends DBContext {
         }
     }
 
+    public boolean isValidUsername(String username) {
+        if (username == null || username.isEmpty()) {
+            return false;
+        }
+        if (username.length() < 2 || username.length() > 12) {
+            return false;
+        }
+        if (!Character.isLetter(username.charAt(0))) {
+            return false;
+        }
+        for (char c : username.toCharArray()) {
+            if (!Character.isLetterOrDigit(c)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean isValidPassword(String password) {
+        if (password == null || password.isEmpty()) {
+            return false;
+        }
+        if (password.length() < 6 || password.length() > 12) {
+            return false;
+        }
+        String regex = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=!]).{6,}$";
+        if (!password.matches(regex)) {
+            return false;
+        }
+        return true;
+    }
+
+    public boolean isValidGmail(String email) {
+        if (email == null || email.isEmpty()) {
+            return false;
+        }
+        String regexPattern = "^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@"
+                + "[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$";
+        if (!email.matches(regexPattern)) {
+            return false;
+        }
+        return true;
+    }
+
+    public boolean isValidPhone(String phone) {
+        if (phone == null || phone.isEmpty()) {
+            return false;
+        }
+        if (phone.length() != 10) {
+            return false;
+        }
+        if (phone.charAt(0) != '0') {
+            return false;
+        }
+        for (char c : phone.toCharArray()) {
+            if (!Character.isDigit(c)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     public static void main(String[] args) {
         DAO dao = new DAO();
-
-        dao.addTour("T0001A", "a", "Viet Nam", 3, 3, "test", 300, 4.5, "img/Milan.jpg");
+//        List<tour> list = dao.getAllTour();
+//        for (tour o : list) {
+//            System.out.println(o);
+//        }
+//
+//        List<dest> list2 = dao.getAllDest();
+//        for (dest o1 : list2) {
+//            System.out.println(o1);
+//        }
+//
+//        book bk = dao.getLastBook();
+//        System.out.println(bk);
+//
+//        tour tr = dao.getBookTour("T000001");
+//        System.out.println(tr);
+//
+        System.out.println(dao.getExistAccount("admin@gmail", "admin"));
+//        
+//        List<book> byuser = dao.getBookByUser("tamtamtam");
+//        System.out.println("---123---");
+//        System.out.println(byuser);
 
     }
 
