@@ -7,6 +7,7 @@ import org.junit.Test;
 import org.mockito.Mock;
 import static org.mockito.Mockito.when;
 import org.mockito.MockitoAnnotations;
+import org.mockito.internal.matchers.apachecommons.ReflectionEquals;
 
 public class GetExistAccountTest {
     
@@ -27,7 +28,7 @@ public class GetExistAccountTest {
 
         final account actual = d.getExistAccount("phuc@gmail.com", "admin");
 
-        Assert.assertEquals(expected, actual);
+        Assert.assertTrue(new ReflectionEquals(expected).matches(actual));
     }
     
     @Test
@@ -39,7 +40,7 @@ public class GetExistAccountTest {
 
         final account actual = d.getExistAccount("admin@gmail", "phuc");
 
-        Assert.assertEquals(expected, actual);
+        Assert.assertTrue(new ReflectionEquals(expected).matches(actual));
     }
     
     @Test
@@ -51,6 +52,6 @@ public class GetExistAccountTest {
 
         final account actual = d.getExistAccount("admin@gmail", "admin");
 
-        Assert.assertEquals(expected, actual);
+        Assert.assertTrue(new ReflectionEquals(expected).matches(actual));
     }
 }
