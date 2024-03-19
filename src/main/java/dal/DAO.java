@@ -10,12 +10,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import org.apache.logging.log4j.Logger;
+import java.util.logging.Level;
+
 import model.account;
 import model.book;
 import model.dest;
 import model.tour;
-import org.apache.logging.log4j.LogManager;
 
 /**
  *
@@ -485,10 +485,7 @@ public class DAO extends DBContext {
             ps.setString(9, image);
             rs = ps.executeQuery();
         } catch (SQLException e) {
-            Logger Log = LogManager.getLogger();
-            Log.error("SQL Exception: " + e.getMessage());
-            Log.error("SQL State: " + e.getSQLState());
-            Log.error("Vendor Error Code: " + e.getErrorCode(), e);
+            e.printStackTrace();
         }
     }
 
